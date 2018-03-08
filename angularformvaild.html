@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular</title>
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<script type="text/javascript" src="js/materialize.min.js">
+	</script>
+	<script type="text/javascript" src="js/angular.js">
+	</script>
+	</head>
+<body>
+   <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Angular</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      </ul>
+    </div>
+  </nav>
+        <div class="container">
+        	<div class="col s3"></div>
+        	<div class="col s4">
+        	<h2>Form</h2>
+        		<div ng-app="mainApp" ng-controller="myCtrl" >
+              <form name="test" novalidate>
+
+
+              <p>First Name<input type="text" name="fname" ng-model="fname" ng-required="true"></p><p ng-if="test.fname.$invalid">Field is required</p>
+              <p>Last Name<input type="text" name="lname" ng-model="lname" ng-minlength="3"></p><p ng-if="test.lname.$invalid">Enter more than 3 char</p>
+              <p>Email<input type="email" ng-model="email" name="email"></p><p ng-if="test.email.$invalid">Invaild email</p>
+              <button class="btn" type="submit" name="action" ng-disabled="test.$invalid">Submit</button>
+              
+              </form>
+                <script type="text/javascript">
+                  angular.module('mainApp',[]).controller('myCtrl',function($scope)
+                  {
+                    $scope.customer={
+                      name:[{"First":"A","Last":"B"},{"First":"C","Last":"D"},{"First":"E","Last":"F"},{"First":"G","Last":"H"},{"First":"I","Last":"J"}],
+                      price:'2'
+                    }
+                });
+                </script>
+                </div>
+
+        	</div>
+        </div>
+</body>
+</html>

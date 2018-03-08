@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular</title>
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<script type="text/javascript" src="js/materialize.min.js">
+	</script>
+	<script type="text/javascript" src="js/angular.js">
+	</script>
+	</head>
+<body>
+   <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Angular</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      </ul>
+    </div>
+  </nav>
+        <div class="container">
+        	<div class="col s3"></div>
+        	<div class="col s4">
+        	<h2>Order By</h2>
+        		<div ng-app ng-init="Studentname=[{Name:'V'},{Name:'B'},{Name:'D'},{Name:'R'},{Name:'E'},{Name:'E'},{Name:'F'}]">
+        		<ol>
+                <li ng-repeat="SName in Studentname|limitTo:'5'|orderBy:'Name'">
+                    {{SName.Name}}
+                </li>
+                </ol>
+                </div>
+
+        	</div>
+        </div>
+</body>
+</html>
