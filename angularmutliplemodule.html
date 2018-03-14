@@ -1,0 +1,95 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    	<title>Angular</title>
+        <script type="text/javascript" src="js/angular.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+    	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    	<script type="text/javascript" src="js/materialize.min.js">
+    	</script>
+
+    	</head>
+        <body>
+           <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">Angular</a>
+            </div>
+          </nav> 
+                <div class="container">
+                	<div class="col s3"></div>
+                	<div class="col s4">
+                	<h2>Student Name</h2>
+                		<div ng-app="firstApp" >
+                			<div ng-controller="studentCtrl">
+                                <p>Enter the name </p><input type="text" ng-model="firstname">
+                    			<p>Enter the Phone Number </p><input type="text" ng-model="phonenumber">
+                                <p>Enter the Email </p><input type="text" ng-model="email">
+                            </div>
+                            <div ng-controller="studentsecondCtrl">
+                                <p>Enter the name </p><input type="text" ng-model="firstname">
+                                <p>Enter the Phone Number </p><input type="text" ng-model="phonenumber">
+                                <p>Enter the Email </p><input type="text" ng-model="email">
+                            </div>   
+                		</div>
+
+                        <h2>Second module</h2>
+                        <div id="secondDiv" ng-app="secondApp">
+                            <div ng-controller="studentthirdCtrl">
+                                <p>Enter the name </p><input type="text" ng-model="firstname">
+                                <p>Enter the Phone Number </p><input type="text" ng-model="phonenumber">
+                                <p>Enter the Email </p><input type="text" ng-model="email">
+                            </div>
+
+                           <div ng-controller="studentfourCtrl">
+                                <p>Enter the name </p><input type="text" ng-model="firstname">
+                                <p>Enter the Phone Number </p><input type="text" ng-model="phonenumber">
+                                <p>Enter the Email </p><input type="text" ng-model="email">
+                            </div>
+                        </div>
+                		<script type="text/javascript">
+
+                		var firstmod=angular.module("firstApp",[]);
+                        var secondmod=angular.module("secondApp",[]);
+
+                        firstmod.controller('studentCtrl',function($scope)
+                		{
+                			$scope.firstname="Tarun";
+                            $scope.phonenumber="123456789";
+                			$scope.email="a@a.com";
+                			
+                		});
+
+                        
+                        
+                        firstmod.controller('studentsecondCtrl',function($scope)
+                        {
+                            $scope.firstname="Joseph";
+                            $scope.phonenumber="987654321";
+                            $scope.email="B@b.com";
+                            
+                        });
+
+                        secondmod.controller('studentthirdCtrl',function($scope)
+                        {
+                            $scope.firstname="Joe";
+                            $scope.phonenumber="9321";
+                            $scope.email="c@c.com";
+                            
+                        });
+
+                        secondmod.controller('studentfourCtrl',function($scope)
+                        {
+                            $scope.firstname="seph";
+                            $scope.phonenumber="921";
+                            $scope.email="D@D.com";
+                            
+                        });
+                        angular.element(document).ready(function()
+                        {
+                		angular.bootstrap(document.getElementById('secondDiv'),['secondApp']);
+                        });
+                		</script>
+                </div>
+        </body>
+    </html>
