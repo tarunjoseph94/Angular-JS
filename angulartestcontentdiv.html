@@ -8,8 +8,13 @@
         <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
         <script type="text/javascript" src="js/materialize.min.js"></script>
 	</head>
+	<style >
+	.invalid {
+	color:red;
+}
+	</style>
 <body>
- 
+
         <div class="container">
         	<!-- <div class="col s3"></div> -->
         	<div class="col s4">
@@ -18,18 +23,19 @@
         		<div ng-app="contentManager" ng-controller="addContent">
             <form name="contentSystem" novaidate>
 
-        			<p>Enter the heading</p><input type="text" name="heading" ng-model="messageDump.myHeading" ng-minlength="5"><p ng-if="contentSystem.heading.$invaild">Enter More than 5 characters</p>
+        			<p>Enter the heading<input type="text" name="myHeading" ng-model="myHeading" ng-minlength="5"></p><p class="invalid" ng-if="contentSystem.myHeading.$invalid">Enter More than 5 characters</p>
                     <p>Enter the Author Name</p><input type="text" ng-model="messageDump.myAuthor">
-              <p>Enter the content</p><textarea class="materialize-textarea" ng-model="messageDump.myContent"></textarea> 
+              <p>Enter the content</p><textarea class="materialize-textarea" ng-model="myContent"></textarea>
+							<p>Last Name<input type="text" name="lname" ng-model="lname" ng-minlength="3"></p><p ng-if="contentSystem.lname.$invalid">Enter more than 3 char</p>
 
         			 <div class="pagePreview" ng-show="contentSystem.$valid">
                     <h2>Page Preview</h2>
                     <div class="divider"></div>
                     <h4>{{messageDump.myHeading}}</h4>
                     <sub>By {{messageDump.myAuthor}}</sub>
-                    <p class="flow-text">{{messageDump.myContent}}</p> 
+                    <p class="flow-text">{{messageDump.myContent}}</p>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    </button>        
+                    </button>
                     </div>
 
                 </form>
@@ -37,21 +43,23 @@
             <script type="text/javascript">
             angular.module("contentManager",[]).controller('addContent',function($scope)
                           {
-                             $scope.messageDump=
-                             {
-                                "myHeading":"",
-                                "myAuthor":"",
-                                "myContent":""
-                            };
+
+                          $scope.myHeading="",
+                          $scope.myAuthor="";
+                          $scope.myContent="";
+
+														var messageDump=
+														{
+															 "myHeading":"$scope.myHeading",
+															 "myAuthor":"$scope.myAuthor",
+															 "myContent":"$scope.myContent"
+													 };
+													 
                             // console.log(messageDump);
                           });
             </script>
-                
+
         	</div>
         </div>
 </body>
 </html>
-
-
-
-
