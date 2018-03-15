@@ -18,7 +18,7 @@
         		<div ng-app="contentManager" ng-controller="addContent">
             <form name="contentSystem" novaidate>
 
-        			<p>Enter the heading</p><input type="text" ng-model="messageDump.myHeading"><p ng-if=""></p>
+        			<p>Enter the heading</p><input type="text" name="heading" ng-model="messageDump.myHeading" ng-minlength="5"><p ng-if="contentSystem.heading.$invaild">Enter More than 5 characters</p>
                     <p>Enter the Author Name</p><input type="text" ng-model="messageDump.myAuthor">
               <p>Enter the content</p><textarea class="materialize-textarea" ng-model="messageDump.myContent"></textarea> 
 
