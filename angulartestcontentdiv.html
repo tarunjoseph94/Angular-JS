@@ -44,6 +44,7 @@
 
                 </form>
                 </div>
+                <div id="resultLocal"></div>
             <script type="text/javascript">
             var app=angular.module("contentManager",[]);
   
@@ -54,7 +55,7 @@
                           $scope.myAuthor="";
                           $scope.myContent="";
                            
-                          //   $scope.test=$scope.myHeading;
+                            // $scope.test=$scope.myHeading;
 
                           // $scope.messageDump=
                           //  {
@@ -88,15 +89,46 @@
                 var heading=document.getElementById("heading").value;
                 var author=document.getElementById("author").value;
                 var content=document.getElementById("content").value;
-
+                 var old = localStorage.getItem("local");
+                 console.log(old);
+                 if(old===null)
+                 {
                 var messageDump=
                 {   myIndex:1,
                     myHeading:heading,
                     myAuthor:author,
                     myContent:content
                 }
+                  //store the data in the from the variabel in local storage
+                  var myJSON = JSON.stringify(messageDump);
+                  localStorage.setItem("local", myJSON);
+               
+              
                 console.log(messageDump);
+            }
+
+            else
+            {
+                //Denver suggestion at 1521628688
+                var myDatajson=JSON.parse(old);
+                console.log(myDatajson);
+                k=myDatajson.myIndex;
+                k++;
+                var messageDump=
+                {   myIndex:k,
+                    myHeading:heading,
+                    myAuthor:author,
+                    myContent:content
+                }
+                var myJSON = JSON.stringify(messageDump);
+                 localStorage.setItem("local", old myJSON);
+                
+
+                console.log(messageDump);
+
             }  
+              document.getElementById("resultLocal").innerHTML = localStorage.getItem("local");
+        }
             </script>
 
             </div>
