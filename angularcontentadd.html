@@ -18,9 +18,9 @@
         <div class="container">
             <!-- <div class="col s3"></div> -->
             <div class="col s4">
-            <h2>Class Name</h2>
+            <h2>Add Content</h2>
 
-                <div ng-app="contentManager" ng-controller="addContent">
+                <div ng-app="contentStoring" ng-controller="addContent">
             <form name="contentSystem" novaidate>
 
                     <p>Enter the heading<input type="text" id="heading" name="myHeading" ng-model="myHeading"  required ng-minlength="5"></p>
@@ -46,7 +46,7 @@
                 </div>
                 <div id="resultLocal"></div>
             <script type="text/javascript">
-            var app=angular.module("contentManager",[]);
+            var app=angular.module("contentStoring",[]);
 
             app.controller('addContent',function($scope)
                           {

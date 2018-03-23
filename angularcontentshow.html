@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angular</title>
+        <script type="text/javascript" src="js/angular.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+    </head>
+    <style >
+    .invalid {
+    color:red;
+}
+    </style>
+<body ng-app="contentRetriver">
+    <div class="row">
+
+        <div class="container" ng-controller="retriveData">
+            <h2>Show Content</h2>
+            <div class="col s6" >
+
+            <div >
+
+                        <table>
+                          <tr>
+                            <th ng-click="orderBy('myIndex')">Index</th>
+                            <th ng-click="orderBy('myHeading')">Heading</th>
+                          </tr>
+                          <tr ng-repeat="content in allContent |orderBy:chooseOrder">
+                            <td>{{content.myIndex}}</td>
+                            <td>{{content.myHeading}}</td>
+                            <td><button class="waves-effect waves-light btn" ng-click="myId(content.myIndex)">Show</button></td>
+                          </tr>
+                        </table>
+                            </div>
+
+
+            </div>
+            <div class="col s6">
+              <div>
+              <h5>{{allContent[contentIndex].myHeading}}</h5>
+              <sub>By {{allContent[contentIndex].myAuthor}}</sub>
+              <p class="flow-text">{{allContent[contentIndex].myContent}}</p>
+              </div>
+
+            </div>
+        </div>
+        <script type="text/javascript">
+        var app=angular.module("contentRetriver",[]);
+        app.controller('retriveData',function($scope)
+                      {
+                      var old = localStorage.getItem("local");
+                      $scope.contentIndex=0;
+                      var myDatajson=JSON.parse(old);
+                      // console.log(myDatajson);
+                      $scope.allContent=myDatajson;
+                      $scope.orderBy = function(x) {
+                          $scope.chooseOrder = x;
+                      }
+                      $scope.myId = function(id) {
+                        // alert(id);
+                        id--;
+
+                        $scope.contentIndex=id;
+                        console.log($scope.allContent[id]);
+                      }
+                      });
+
+
+        </script>
+        </div>
+</body>
+</html>
