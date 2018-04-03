@@ -36,12 +36,12 @@
             <form name="contentSystem" novaidate>
 
                     <p>Enter the heading<input type="text" id="heading" name="myHeading" ng-model="myHeading"  required ng-minlength="5"></p>
-                    <p class="invalid" ng-if="contentSystem.myHeading.$invalid">Enter More than 5 characters</p>
+                    <p class="invalid" ng-if="contentSystem.myHeading.$invalid && contentSystem.myHeading.$touched">Enter More than 5 characters</p>
                     <p>Enter the Author Name</p>
-                    <input type="text" name="myAuthor" id="author" ng-model="myAuthor"  required if-Text>
-                    <p class="invalid" ng-if="contentSystem.myAuthor.$invalid">Enter only characters</p>
+                    <input type="text" name="myAuthor" id="author" ng-model="myAuthor"   required if-Text>
+                    <p class="invalid" ng-if="contentSystem.myAuthor.$invalid && contentSystem.myAuthor.$touched">Enter only characters</p>
                     <p>Enter the content</p><textarea id="content" class="materialize-textarea" name="myContent" ng-model="myContent"  required></textarea>
-                    <p class="invalid" ng-if="contentSystem.myContent.$invalid">Please enter some content</p>
+                    <p class="invalid" ng-if="contentSystem.myContent.$invalid && contentSystem.myContent.$touched">Please enter some content</p>
                     <button class="btn waves-effect waves-light" ng-show="contentSystem.$valid" onClick="submitData()" type="submit" name="action">Submit
                     </button>
                   </div>
@@ -70,15 +70,7 @@
                           $scope.myAuthor="";
                           $scope.myContent="";
 
-                            // $scope.test=$scope.myHeading;
-
-                          // $scope.messageDump=
-                          //  {
-                          //     "myHeading":$scope.myHeading,
-                          //      "myAuthor":$scope.myAuthor,
-                          //     "myContent":$scope.myContent
-                          //   };
-
+                           
                           //            console.log($scope.    messageDump);
                           });
             //Check if only char
@@ -109,14 +101,14 @@
                  if(old===null)
                  {
                 var messageDump=
-                  {   myIndex:1,
+                  [{   myIndex:1,
                     myHeading:heading,
                     myAuthor:author,
                     myContent:content
-                }
+                }]
                   //store the data in the from the variabel in local storage
                   var myJSON = JSON.stringify(messageDump);
-                  localStorage.setItem("local", "["+myJSON+"]");
+                  localStorage.setItem("local", myJSON);
 
 
                 console.log(messageDump);
@@ -124,7 +116,7 @@
 
             else
             {
-                //Denver suggestion at 1521628688
+                //Denver's suggestion at 1521628688
                 var myDatajson=JSON.parse(old);
                 console.log(myDatajson);
                 k=myDatajson.length;
@@ -144,7 +136,7 @@
                 console.log(messageDump);
 
             }
-              document.getElementById("resultLocal").innerHTML = localStorage.getItem("local");
+              // document.getElementById("resultLocal").innerHTML = localStorage.getItem("local");
         }
             </script>
 

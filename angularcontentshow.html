@@ -25,12 +25,12 @@
      </ul>
    </div>
  </nav>
-    <div class="row">
+    <div class="row" ng-controller="retriveData">
 
-        <div class="container" ng-controller="retriveData">
-            <h2>Show Content</h2>
+        <div class="container" >
+            <div ng-show="allContent.length > 0">
             <div class="col s6" >
-
+            	<h2>Show Content</h2>
             <div >
 
                         <table>
@@ -58,15 +58,37 @@
 
             </div>
         </div>
+
+        <div>
+        	<div class="container">
+            <div ng-show="allContent.length == 0">
+            <h3>Please Enter some content</h3>
+            <h5><a href="angularcontentadd.html">Click Here to add content</h5>
+            </div>
+            </div>
+        </div>
+        
+
+        </div>
+
+        </div>
         <script type="text/javascript">
         var app=angular.module("contentRetriver",[]);
         app.controller('retriveData',function($scope)
                       {
                       var old = localStorage.getItem("local");
                       $scope.contentIndex=0;
+                      
                       var myDatajson=JSON.parse(old);
-                      // console.log(myDatajson);
+                     
+                       console.log(myDatajson);
                       $scope.allContent=myDatajson;
+                       if($scope.allContent.length<1)
+                      {
+                      	$scope.hideContent=true;
+                      	$scope.showHiddenHeading=false;
+                      	console.log($scope.hideContent);
+                      }
                       $scope.orderBy = function(x) {
                           $scope.chooseOrder = x;
                       }
@@ -80,10 +102,20 @@
                       $scope.deleteContent = function(id) {
                         // alert(id);
                         id--;
-                        delete messageDump[id];
-                        //delete $scope.allContent[id];
-                        console.log($scope.allContent[id]);
+                        //delete messageDump[id];
+                        // delete $scope.allContent[id];
+                        $scope.allContent.splice(id, 1);
+                        for(var i=id;i<$scope.allContent.length;i++)
+                        {
+                        	$scope.allContent[i].myIndex-=1;
+                        	// console.log($scope.allContent[i]);
+                        }
+                        messageDump=$scope.allContent;
+                       	var myJSON = JSON.stringify(messageDump);
+                  		localStorage.setItem("local", myJSON);
+                        console.log($scope.allContent);
                       }
+
                       
                       });
 
