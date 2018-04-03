@@ -41,7 +41,8 @@
                           <tr ng-repeat="content in allContent |orderBy:chooseOrder">
                             <td>{{content.myIndex}}</td>
                             <td>{{content.myHeading}}</td>
-                            <td><button class="waves-effect waves-light btn" ng-click="myId(content.myIndex)">Show</button></td>
+                            <td><button class="waves-effect waves-light btn" ng-click="showContent(content.myIndex)">Show</button></td>
+                            <td><button class="waves-effect waves-light btn" ng-click="deleteContent(content.myIndex)">Delete</button></td>
                           </tr>
                         </table>
                             </div>
@@ -69,16 +70,22 @@
                       $scope.orderBy = function(x) {
                           $scope.chooseOrder = x;
                       }
-                      $scope.myId = function(id) {
+                      $scope.showContent = function(id) {
                         // alert(id);
                         id--;
 
                         $scope.contentIndex=id;
                         console.log($scope.allContent[id]);
                       }
+                      $scope.deleteContent = function(id) {
+                        // alert(id);
+                        id--;
+                        delete messageDump[id];
+                        //$scope.contentIndex=id;
+                        console.log($scope.allContent[id]);
+                      }
+                      
                       });
-            //Use this to delete on the index
-            //delete messageDump[2];
 
         </script>
         </div>
