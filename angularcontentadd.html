@@ -14,11 +14,11 @@
 }
     </style>
 <body>
-  <nav>
+  <nav class="teal darken-3">
    <div class="nav-wrapper">
 
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <a href="#" class="brand-logo center">Angular JS</a>
+       <a href="#" class="brand-logo center">Content Mangement</a>
        <li><a href="angularcontentadd.html">Add content</a></li>
        <li><a href="angularcontentshow.html">Show content</a></li>
 
@@ -106,7 +106,7 @@
                     myAuthor:author,
                     myContent:content
                 }]
-                  //store the data in the from the variabel in local storage
+                  //store the data in the from the variabe in local storage
                   var myJSON = JSON.stringify(messageDump);
                   localStorage.setItem("local", myJSON);
 

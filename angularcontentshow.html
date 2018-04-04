@@ -14,11 +14,11 @@
 }
     </style>
 <body ng-app="contentRetriver">
-  <nav>
+  <nav class="teal darken-3">
    <div class="nav-wrapper">
 
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <a href="#" class="brand-logo center">Angular JS</a>
+       <a href="#" class="brand-logo center">Content Mangement</a>
        <li><a href="angularcontentadd.html">Add content</a></li>
        <li><a href="angularcontentshow.html">Show content</a></li>
 
@@ -29,8 +29,8 @@
 
         <div class="container" >
             <div ng-show="allContent.length > 0 ">
-            <div class="col s6" >
-            	<h2>Show Content</h2>
+            <div class="col s4" >
+            	<h2>Content</h2>
             <div >
 
                         <table>
@@ -49,9 +49,9 @@
 
 
             </div>
-            <div class="col s6">
+            <div class="col s4 offset-s4">
               <div>
-                  <h2>Content</h2>
+                  <h2>Show Content</h2>
               <h5>{{allContent[contentIndex].myHeading}}</h5>
               <sub>By {{allContent[contentIndex].myAuthor}}</sub>
               <p class="flow-text">{{allContent[contentIndex].myContent}}</p>
