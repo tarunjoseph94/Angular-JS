@@ -28,7 +28,7 @@
     <div class="row" ng-controller="retriveData">
 
         <div class="container" >
-            <div ng-show="allContent.length > 0">
+            <div ng-show="allContent.length > 0 ">
             <div class="col s6" >
             	<h2>Show Content</h2>
             <div >
@@ -61,7 +61,7 @@
 
         <div>
         	<div class="container">
-            <div ng-show="allContent.length == 0">
+            <div ng-show="allContent==null || allContent.length==0">
             <h3>Please Enter some content</h3>
             <h5><a href="angularcontentadd.html">Click Here to add content</h5>
             </div>
@@ -76,6 +76,12 @@
         var app=angular.module("contentRetriver",[]);
         app.controller('retriveData',function($scope)
                       {
+
+                      $scope.test = function(a) {
+                        console.log("GH");
+                        console.log(a);
+                      };
+
                       var old = localStorage.getItem("local");
                       $scope.contentIndex=0;
                       
@@ -83,7 +89,10 @@
                      
                        console.log(myDatajson);
                       $scope.allContent=myDatajson;
+
+                      if($scope.allContent!=null){
                        if($scope.allContent.length<1)
+
                       {
                       	$scope.hideContent=true;
                       	$scope.showHiddenHeading=false;
@@ -117,8 +126,8 @@
                       }
 
                       
+                    }
                       });
-
         </script>
         </div>
 </body>
