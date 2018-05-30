@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular</title>
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<script type="text/javascript" src="js/materialize.min.js">
+	</script>
+	<script type="text/javascript" src="js/angular.js">
+	</script>
+	</head>
+<body>
+   <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Angular</a>
+
+    </div>
+  </nav> 
+        <div class="container">
+        	<div class="col s3"></div>
+        	<div class="col s4">
+        	<h2>Marks</h2>
+        		<div ng-app="mainApp" ng-controller="myCtrl">
+        			<table>
+                <tr>
+                    <td><p>First Name</p></td>
+                    <td><input type="text" ng-model="Student.Fname"></td>
+                </tr>
+                <tr>
+                  <td><p>Last Name</p></td>
+                  <td><input type="text" ng-model="Student.Lname"></td>
+                </tr>
+                <tr>
+                  <td><p>Roll No</p></td>
+                  <td><input type="text" ng-model="Student.rollNo"></td>
+                </tr>
+                <tr>
+                <td><p>Expense on books</p></td>
+                <td>{{Student.cost*Student.quantity}}</td>
+                </tr>
+                <tr>
+                <td><p>Full Name</p></td>  
+        			   <td><p>{{Student.fullname()}}</p></td>
+                 </tr>
+                 <tr>
+                 <td>
+                 <p>Subjects</p>
+                 </td>
+                 <td>
+                   <table>
+                   <tr>
+                     <th>Name</th>
+                     <th>Marks</th>
+                   </tr>
+                   <tr>
+                    <td><p>{{Student.subjects[3]}}</p></td>
+                    <td><p>{{Student.subjects[3]}}</p></td>
+                   </tr>
+                   </table>
+                 </td>
+                 </tr>
+              </table> 
+              <script>
+        angular.module("mainApp",[]).controller('myCtrl',function($scope)
+        {
+          $scope.Student={
+            Fname:"Murali",
+            Lname:"Prakesh",
+            rollNo:"01",
+            cost:'10',
+            quantity:'05',
+            subjects:[{Sname:'Physics',marks:'70'},{Sname:'Chemistry',marks:'80'},{Sname:'Math',marks:'65'},{Sname:'English',marks:'75'},{Sname:'Hindi',marks:'67'}],
+            fullname:function()
+            {
+              return $scope.Student.Fname+" "+$scope.Student.Lname;
+            }
+          };
+        });
+        </script>      
+        		</div>
+
+        	</div>
+        </div>
+        
+</body>
+</html>

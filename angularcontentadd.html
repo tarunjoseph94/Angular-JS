@@ -14,11 +14,11 @@
 }
     </style>
 <body>
-  <nav class="teal darken-3">
+  <nav>
    <div class="nav-wrapper">
 
      <ul id="nav-mobile" class="right hide-on-med-and-down">
-       <a href="#" class="brand-logo center">Content Mangement System</a>
+       <a href="#" class="brand-logo center">Angular JS</a>
        <li><a href="angularcontentadd.html">Add content</a></li>
        <li><a href="angularcontentshow.html">Show content</a></li>
 
@@ -96,8 +96,6 @@
                 var heading=document.getElementById("heading").value;
                 var author=document.getElementById("author").value;
                 var content=document.getElementById("content").value;
-                var d=new Date();
-                d=d.toDateString();
                  var old = localStorage.getItem("local");
                  console.log(old);
                  if(old===null)
@@ -106,10 +104,9 @@
                   [{   myIndex:1,
                     myHeading:heading,
                     myAuthor:author,
-                    myDate:d,
                     myContent:content
                 }]
-                  //store the data in the from the variabe in local storage
+                  //store the data in the from the variabel in local storage
                   var myJSON = JSON.stringify(messageDump);
                   localStorage.setItem("local", myJSON);
 
@@ -128,7 +125,6 @@
                 {   myIndex:k,
                     myHeading:heading,
                     myAuthor:author,
-                    myDate:d,
                     myContent:content
                 }
                 myDatajson.push(messageDump);

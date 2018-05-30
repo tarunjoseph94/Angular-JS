@@ -1,0 +1,50 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="js/jquery.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="js/bootstrap.min.js"></script> 
+ <script src="js/angular.js"></script>
+ 	<title>Angular home</title>
+ </head>
+
+ <body>
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Angular Js</a>
+    </div>
+    <ul class="nav navbar-nav">
+      
+      <li class="active"><a href="angularstart.html">Multiple NG app</a></li>
+      <li ><a href="angularworld.html">Hello world</a></li>
+      <li ><a href="angularvaraible.html">Angular variable</a></li>
+      <li ><a href="angulararray.html">Angular array</a></li>
+    </ul>
+  </div>
+</nav>
+
+ <div class="container"> 
+ 	
+ 	<div ng-app="" id="">
+ 	<p>Name:<input type="text" ng-model="name"></p>
+ 	<p ng-bind="name"></p>
+ 	</div>
+ 	
+ 	<div id="div2" ng-app="module2" ng-init="myName='Test name'">
+ 	{{myName}}
+ 	</div>
+ 	</div>
+ 	<script type="text/javascript">
+ 		var app = angular.module("module2", []); 
+ 		angular.bootstrap(document.getElementById("div2"), ['module2']);
+ 	</script>
+
+ </body>
+ </html>
+ 

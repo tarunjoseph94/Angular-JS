@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular</title>
+	<link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+	<script type="text/javascript" src="js/materialize.min.js">
+	</script>
+	<script type="text/javascript" src="js/angular.js">
+	</script>
+	</head>
+<body>
+   <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Angular</a>
+
+    </div>
+  </nav> 
+        <div class="container">
+        	<div class="col s3"></div>
+        	<div class="col s4">
+        	<h2>Marks</h2>
+        		<div ng-app="" ng-init="Fname='Murali';Lname='Prakesh';subjects=[{Sname:'Physics',marks:'70'},{Sname:'Chemistry',marks:'80'},{Sname:'Math',marks:'65'},{Sname:'English',marks:'75'},{Sname:'Hindi',marks:'67'}]">
+        			<table>
+                <tr>
+                    <td><p>First Name</p></td>
+                    <td><input type="text" ng-model="Fname"></td>
+                </tr>
+                <tr>
+                  <td><p>Last Name</p></td>
+                  <td><input type="text" ng-model="Lname"></td>
+                </tr>
+                <tr>
+                <td><p>Full Name</p></td>  
+        			   <td><p>{{Fname+" "+Lname}}</p></td>
+                 </tr>
+                 <tr>
+                 <td>
+                 <p>Subjects</p>
+                 </td>
+                 <td>
+                   <table>
+                   <tr>
+                     <th>Name</th>
+                     <th>Marks</th>
+                   </tr>
+                   <tr ng-repeat="subject in subjects">
+                    <td><p>{{subject.Sname}}</p></td>
+                    <td><p>{{subject.marks}}</p></td>
+                   </tr>
+                   </table>
+                 </td>
+                 </tr>
+              </table>       
+        		</div>
+
+        	</div>
+        </div>
+</body>
+</html>

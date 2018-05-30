@@ -1,0 +1,37 @@
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head>  
+    <title></title>  
+    <script src="angular.js"></script>  
+    <script src="angular.ng-modules.js"></script>  
+    <script src="AngularController.js"></script>  
+</head>  
+<body>  
+    <form ng-modules="firstModule,secondModule">  
+        <fieldset>  
+            <legend>We are having both the modules</legend>  
+            <div ng-controller="firstController">  
+                Provide Your Name :  
+            <input type="text" ng-model="UserName" />  
+            </div>  
+            <div ng-controller="secondController">  
+                Provide Your Mobile Number :  
+            <input type="text" ng-model="MobileNumber" />  
+            </div>  
+            <div ng-controller="thirdController">  
+                Provide Your Email ID :  
+            <input type="text" ng-model="EmailId" />  
+            </div>  
+        </fieldset>  
+    </form>  
+    <form ng-module="secondModule">  
+        <fieldset>  
+            <legend>I am having only second module</legend>  
+            <div ng-controller="thirdController">  
+                Provide Your Email ID :  
+            <input type="text" ng-model="EmailId" />  
+            </div>  
+        </fieldset>  
+    </form>  
+</body>  
+</html> 
